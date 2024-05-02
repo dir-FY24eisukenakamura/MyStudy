@@ -36,5 +36,9 @@ public class IndexServlet extends HttpServlet {
         response.getWriter().append(Integer.valueOf(studyrecords.size()).toString());
 
         em.close();
+        request.setAttribute("studyrecords", studyrecords);
+
+        var rd = request.getRequestDispatcher("/WEB-INF/views/studyrecords/index.jsp");
+        rd.forward(request, response);
     }
 }
